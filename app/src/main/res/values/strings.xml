@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Projeto fire base</string>
+    <string name="logo_tela_de_login">Logo tela de login</string>
+    <string name="entrar">Entrar</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="clique_aqui_para_se_cadastrar">Clique aqui para se cadastrar!</string>
+    <string name="cadastre_se">Cadastre-se</string>
+    <string name="nome">Nome</string>
+    <string name="senha_cadastro">Senha</string>
+    <string name="email_cadastro">Email</string>
+    <string name="cadastrar">Cadastrar</string>
+</resources>
