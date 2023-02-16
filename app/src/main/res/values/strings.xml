@@ -10,4 +10,9 @@
     <string name="senha_cadastro">Senha</string>
     <string name="email_cadastro">Email</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="sergio_n4todev_gmail_com">sergio.n4todev@gmail.com</string>
+    <string name="name_usuario">Sérgio Rodrigues</string>
+    <string name="email_user">Sergio.n4todev@gmail.com</string>
+    <string name="desconectar_user">desconectar</string>
+    <string name="button_desconect_user">Desconectar</string>
 </resources>

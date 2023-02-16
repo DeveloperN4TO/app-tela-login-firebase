@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:id="@+id/tela_login">
 
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +43,8 @@
         android:drawableEnd="@drawable/ic_email_24"
         app:layout_constraintStart_toStartOf="@+id/containerview"
         app:layout_constraintEnd_toEndOf="@+id/containerview"
-        app:layout_constraintTop_toTopOf="@+id/containerview"/>
+        app:layout_constraintTop_toTopOf="@+id/containerview"
+        android:autofillHints="textEmailAddress" />
 
     <EditText
         android:id="@+id/edit_senha"
@@ -54,7 +56,8 @@
         android:drawableEnd="@drawable/ic_eye_24"
         app:layout_constraintStart_toStartOf="@+id/containerview"
         app:layout_constraintEnd_toEndOf="@+id/containerview"
-        app:layout_constraintTop_toBottomOf="@+id/edit_email"/>
+        app:layout_constraintTop_toBottomOf="@+id/edit_email"
+        android:autofillHints="Password" />
     
     
     <androidx.appcompat.widget.AppCompatButton
@@ -84,8 +87,9 @@
         android:id="@+id/text_tela_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:textSize="28dp"
+        android:layout_marginTop="100dp"
+        android:textAllCaps="false"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:text="@string/clique_aqui_para_se_cadastrar"

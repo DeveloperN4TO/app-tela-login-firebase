@@ -34,8 +34,11 @@
 
     </style>
 
+    <style name="Background_Style">
 
+        <item name="backgroundColor">#fcb118</item>
 
+    </style>
 
 
 </resources>
