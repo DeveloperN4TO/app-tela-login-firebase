@@ -41,6 +41,7 @@
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="text"
+        android:autofillHints="name"
         app:layout_constraintTop_toTopOf="@+id/container_tela2"
         app:layout_constraintEnd_toEndOf="@id/container_tela2"
         app:layout_constraintStart_toStartOf="@id/container_tela2" />
@@ -49,6 +50,7 @@
         android:id="@+id/edit_cadastro_email"
         style="@style/Edit_Text"
         android:hint="@string/email_cadastro"
+        android:autofillHints="emailAddress"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="textWebEmailAddress"
@@ -61,6 +63,7 @@
         android:id="@+id/edit_cadastro_senha"
         style="@style/Edit_Text"
         android:hint="@string/senha_cadastro"
+        android:autofillHints="password"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
         android:inputType="textPassword"
@@ -77,15 +80,7 @@
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/container_tela2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-
-
-        />
-
-
-
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
