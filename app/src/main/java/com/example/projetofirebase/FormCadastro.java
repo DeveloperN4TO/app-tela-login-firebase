@@ -23,7 +23,7 @@ public class FormCadastro extends AppCompatActivity {
 
     private Button button_cadastro;
 
-    String[] mensagens = {"Preencha todos os campos", "cadastro Realizado com sucesso!"};
+    String[] mensagens = {"Preencha todos os campos", "Cadastro Realizado com sucesso!"};
 
 
     @Override
@@ -49,19 +49,16 @@ public class FormCadastro extends AppCompatActivity {
 
                 }else{
 
-                    CadastrarUsuario();
-
+                    CadastrarUsuario(view);
 
                 }
-
 
             }
         });
 
+     }
 
-            }
-
-            private void CadastrarUsuario(){
+            private void CadastrarUsuario(View view){
 
                 String email = edit_cadastro_email.getText().toString();
                 String senha = edit_cadastro_senha.getText().toString();
@@ -72,13 +69,15 @@ public class FormCadastro extends AppCompatActivity {
 
                         if (task.isSuccessful()){
 
+                            Snackbar snackbar = Snackbar.make(view, mensagens [1],Snackbar.LENGTH_LONG);
+                            snackbar.setBackgroundTint(Color.RED);
+                            snackbar.setTextColor(Color.WHITE);
+                            snackbar.show();
+
                         }
 
                     }
                 });
-
-
-
 
             }
 
