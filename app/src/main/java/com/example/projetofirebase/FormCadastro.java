@@ -1,11 +1,14 @@
 package com.example.projetofirebase;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class FormCadastro extends AppCompatActivity {
 
@@ -14,6 +17,8 @@ public class FormCadastro extends AppCompatActivity {
     private EditText edit_cadastro_senha;
 
     private Button button_cadastro;
+
+    String[] mensagens = {"Preencha todos os campos", "cadastro Realizado com sucesso!"};
 
 
     @Override
@@ -25,8 +30,20 @@ public class FormCadastro extends AppCompatActivity {
 
         button_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                
+            public void onClick(View view) {
+
+                String nome  = edit_nome_cadastro.getText().toString();
+                String email = edit_cadastro_email.getText().toString();
+                String senha = edit_cadastro_senha.getText().toString();
+
+                if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() ){
+                    Snackbar snackbar = Snackbar.make(view, mensagens [0],Snackbar.LENGTH_LONG);
+                    snackbar.setBackgroundTint(Color.RED);
+                    snackbar.setTextColor(Color.WHITE);
+                    snackbar.show();
+
+                }
+
 
             }
         });
