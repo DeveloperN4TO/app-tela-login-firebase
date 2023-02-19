@@ -5,19 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
-
 import java.util.Objects;
 
 public class FormCadastro extends AppCompatActivity {
@@ -38,27 +31,24 @@ public class FormCadastro extends AppCompatActivity {
 
         IniciarComponentes();
 
-        button_cadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        button_cadastro.setOnClickListener(view -> {
 
-                String nome  = edit_nome_cadastro.getText().toString();
-                String email = edit_cadastro_email.getText().toString();
-                String senha = edit_cadastro_senha.getText().toString();
+            String nome  = edit_nome_cadastro.getText().toString();
+            String email = edit_cadastro_email.getText().toString();
+            String senha = edit_cadastro_senha.getText().toString();
 
-                if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() ){
-                    Snackbar snackbar = Snackbar.make(view, mensagens [0],Snackbar.LENGTH_LONG);
-                    snackbar.setBackgroundTint(Color.RED);
-                    snackbar.setTextColor(Color.WHITE);
-                    snackbar.show();
+            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() ){
+                Snackbar snackbar = Snackbar.make(view, mensagens [0],Snackbar.LENGTH_LONG);
+                snackbar.setBackgroundTint(Color.RED);
+                snackbar.setTextColor(Color.WHITE);
+                snackbar.show();
 
-                }else{
+            }else{
 
-                    CadastrarUsuario(view);
-
-                }
+                CadastrarUsuario(view);
 
             }
+
         });
 
      }
@@ -68,48 +58,45 @@ public class FormCadastro extends AppCompatActivity {
                 String email = edit_cadastro_email.getText().toString();
                 String senha = edit_cadastro_senha.getText().toString();
 
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener(task -> {
 
-                        if (task.isSuccessful()){
+                    if (task.isSuccessful()){
 
-                            Snackbar snackbar = Snackbar.make(view, mensagens [1],Snackbar.LENGTH_LONG);
-                            snackbar.setBackgroundTint(Color.RED);
-                            snackbar.setTextColor(Color.WHITE);
-                            snackbar.show();
-                        }else{
-                            String erro;
-                            try {
-                                throw Objects.requireNonNull(task.getException());
+                        Snackbar snackbar = Snackbar.make(view, mensagens [1],Snackbar.LENGTH_LONG);
+                        snackbar.setBackgroundTint(Color.RED);
+                        snackbar.setTextColor(Color.WHITE);
+                        snackbar.show();
+                    }else{
+                        String erro;
+                        try {
+                            throw Objects.requireNonNull(task.getException());
 
-                            }catch (FirebaseAuthWeakPasswordException exception) {
+                        }catch (FirebaseAuthWeakPasswordException exception) {
 
-                                erro = "Erro: Digite uma senha com minimo de 6 caracteres!";
+                            erro = "Erro: Digite uma senha com minimo de 6 caracteres!";
 
-                            }catch (FirebaseAuthUserCollisionException exception) {
+                        }catch (FirebaseAuthUserCollisionException exception) {
 
-                                erro = "Erro: Conta ja cadastrada!";
+                            erro = "Erro: Conta ja cadastrada!";
 
-                            }catch (FirebaseAuthInvalidCredentialsException exception) {
+                        }catch (FirebaseAuthInvalidCredentialsException exception) {
 
-                                erro = "Erro: Email invalido!";
+                            erro = "Erro: Email invalido!";
 
 
-                            }catch (Exception exception){
+                        }catch (Exception exception){
 
-                                erro = "Erro ao cadastrar usuário!";
-
-                            }
-                            Snackbar snackbar = Snackbar.make(view, erro,Snackbar.LENGTH_LONG);
-                            snackbar.setBackgroundTint(Color.RED);
-                            snackbar.setTextColor(Color.WHITE);
-                            snackbar.show();
-
+                            erro = "Erro ao cadastrar usuário!";
 
                         }
+                        Snackbar snackbar = Snackbar.make(view, erro,Snackbar.LENGTH_LONG);
+                        snackbar.setBackgroundTint(Color.RED);
+                        snackbar.setTextColor(Color.WHITE);
+                        snackbar.show();
+
 
                     }
+
                 });
 
             }
