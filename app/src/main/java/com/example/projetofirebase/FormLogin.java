@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class FormLogin extends AppCompatActivity {
 
     private TextView text_tela_cadastro;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
